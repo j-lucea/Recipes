@@ -8,8 +8,10 @@
     justo nec mollis tincidunt. Suspendisse a cursus lacus. Quisque vel consectetur augue, id auctor mi. Nullam dictum
     vulputate justo a hendrerit. Mauris varius arcu ac enim lobortis tincidunt in quis turpis.
     <ul>
+        {% for recipe in recipes %}
         <li>
-            <a href="{{ url('recipe.show', {id: 32, slug: 'pate-bolognaise'}) }}">Pâtes bolognaise</a>
+            <a href="{{ url('recipe.show', {id: recipe.id, slug: recipe.slug }) }}">{{ recipe.title }}</a>
         </li>
+        {% endfor %}
     </ul>
 {% endblock %}
