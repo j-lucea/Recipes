@@ -14,7 +14,11 @@ use Symfony\Component\Routing\Attribute\Route;
 class RecipeController extends AbstractController
 {
     #[Route('/recettes', name: 'recipe.index')]
-    public function index(Request $request, RecipeRepository $repository, EntityManagerInterface $em): Response
+    public function index(
+        Request $request,
+        RecipeRepository $repository,
+        EntityManagerInterface $em
+    ): Response
     {
         $recipes = $repository->findWithDurationLowerThan(20);
         return $this->render('recipe/index.html.twig', [
@@ -22,7 +26,12 @@ class RecipeController extends AbstractController
         ]);
     }
     #[Route('/recettes/{slug}-{id}', name: 'recipe.show', requirements: ['id' => '\d+', 'slug' => '[a-z0-9-]+'])]
-    public function show(Request $request, string $slug, int $id, RecipeRepository $repository): Response
+    public function show(
+        Request $request,
+        string $slug,
+        int $id,
+        RecipeRepository $repository
+    ): Response
     {
         $recipe = $repository->find($id);
         if ($slug !== $recipe->getSlug()) {
@@ -33,7 +42,10 @@ class RecipeController extends AbstractController
         ]);
     }
     #[Route('/recettes/add', name: 'recipe.add')]
-    public function create(Request $request, EntityManagerInterface $em)
+    public function create(
+        Request $request,
+        EntityManagerInterface $em
+    )
     {
         $recipe = new Recipe();
         $form = $this->createForm(RecipeType::class, $recipe);
@@ -49,7 +61,11 @@ class RecipeController extends AbstractController
         ]);
     }
     #[Route('/recettes/{id}/edit', name: 'recipe.edit', requirements: ['id' => '\d+'], methods: ['GET', 'POST'])]
-    public function edit(Request $request, Recipe $recipe, EntityManagerInterface $em): Response
+    public function edit(
+        Request $request,
+        Recipe $recipe,
+        EntityManagerInterface $em
+    ): Response
     {
         $form = $this->createForm(RecipeType::class, $recipe);
         $form->handleRequest($request);
@@ -64,7 +80,11 @@ class RecipeController extends AbstractController
         ]);
     }
     #[Route('/recettes/{id}', name: 'recipe.delete', requirements: ['id' => '\d+'], methods: ['DELETE'])]
-    public function delete(Request $request, Recipe $recipe, EntityManagerInterface $em): Response
+    public function delete(
+        Request $request,
+        Recipe $recipe,
+        EntityManagerInterface $em
+    ): Response
     {
         $em->remove($recipe);
         $em->flush();
