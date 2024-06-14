@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -23,6 +23,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ app.current_route starts with 'recipe.' ? 'active' : '' }}" href="{{ path('recipe.index') }}">Recettes</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" {{ app.current_route == 'contact' ? 'active' : '' }}  href="{{ path('contact') }}">Contact</a>
                     </li>
                 </ul>
             </div>
