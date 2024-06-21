@@ -1,11 +1,13 @@
 {% extends 'admin/admin.html.twig' %}
 
-{% block title 'Modification de la recette ' ~ recipe.title %}
+{% block title 'Modification de la recette : ' ~ recipe.title %}
 
 {% block body %}
 
-    <h1>Modification la recette {{ recipe.title }}</h1>
-
+    <h1>Modification la recette : {{ recipe.title }}</h1>
+    <p>
+        <img src="{{ vich_uploader_asset(recipe, 'thumbnailFile') }}" class="rounded mx-auto d-block" alt="">
+    </p>
     {{ form(form) }}
 
 {% endblock %}
