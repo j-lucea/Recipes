@@ -1,10 +1,10 @@
 {% extends 'admin/admin.html.twig' %}
 
-{% block title 'Modifification de la catégorie ' ~ category.name %}
+{% block title 'Modifification de la catégorie : ' ~ category.name %}
 
 {% block body %}
 
-    <h1>Modification la catégorie {{ category.name }}</h1>
+    <h1 >Modification la catégorie : {{ category.name }}</h1>
 
     {{ form(form) }}
 
