@@ -24,7 +24,8 @@ class RecipeController extends AbstractController
         EntityManagerInterface $em
     ): Response
     {
-        $recipes = $repository->findWithDurationLowerThan(20);
+        $page = $request->query->getInt('page', 1);
+        $recipes = $repository->paginateRecipes($page);
         return $this->render('admin/recipe/index.html.twig', [
             'recipes' => $recipes
         ]);
