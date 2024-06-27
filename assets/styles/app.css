@@ -1,3 +1,4 @@
 body {
-    background-color: skyblue;
+    /*background-color: skyblue;*/
+    background:url(../images/recipes_background.jpg) no-repeat center center / cover;
 }

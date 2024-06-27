@@ -19,4 +19,14 @@
     array (
     ),
   ),
+  'canvas-confetti' => 
+  array (
+    'version' => '1.9.3',
+    'dependencies' => 
+    array (
+    ),
+    'extraFiles' => 
+    array (
+    ),
+  ),
 );
